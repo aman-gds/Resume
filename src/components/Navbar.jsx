@@ -20,10 +20,10 @@ export default function Navbar({ activeTab, setActiveTab }) {
     <header className="navbar-header">
       <div className="nav-logo" id="nav-logo">
         <Code size={24} className="logo-accent" />
-        <span>Aman<span className="logo-accent">.K</span></span>
+        <span>M.Aman<span className="logo-accent"> Khan</span></span>
       </div>
 
-      <button 
+      <button
         className="mobile-nav-toggle"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Toggle navigation menu"
