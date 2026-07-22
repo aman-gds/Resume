@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import AboutSection from './components/AboutSection';
 import ResumeSection from './components/ResumeSection';
 import SkillsSection from './components/SkillsSection';
+import PortfolioSection from './components/PortfolioSection';
 import ContactSection from './components/ContactSection';
 import './App.css';
 
@@ -29,6 +30,8 @@ export default function App() {
         return <ResumeSection />;
       case 'skills':
         return <SkillsSection />;
+      case 'portfolio':
+        return <PortfolioSection />;
       case 'contact':
         return <ContactSection onShowToast={showToast} />;
       default:

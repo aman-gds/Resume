@@ -8,6 +8,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
     { id: 'about', label: 'About Me' },
     { id: 'resume', label: 'Resume' },
     { id: 'skills', label: 'Skills' },
+    { id: 'portfolio', label: 'My Portfolio' },
     { id: 'contact', label: 'Contact' }
   ];
 

@@ -1008,3 +1008,219 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
   }
 }
+
+/* =============================================
+   PORTFOLIO SECTION
+   ============================================= */
+
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.portfolio-filter-btn {
+  padding: 7px 18px;
+  border-radius: 20px;
+  background-color: var(--subcard-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.portfolio-filter-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.portfolio-filter-btn.active {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #000;
+  font-weight: 700;
+  box-shadow: var(--accent-shadow);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* Project Card */
+.portfolio-card {
+  background-color: var(--subcard-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(var(--accent-rgb), 0.4);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(var(--accent-rgb), 0.08);
+}
+
+/* Screenshot Image */
+.portfolio-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 185px;
+  overflow: hidden;
+  background-color: #0a0a0a;
+  flex-shrink: 0;
+}
+
+.portfolio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.portfolio-card:hover .portfolio-img {
+  transform: scale(1.04);
+}
+
+.portfolio-img-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+}
+
+/* Hover Overlay */
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(3px);
+}
+
+.portfolio-overlay.visible {
+  opacity: 1;
+}
+
+.portfolio-visit-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--accent-color);
+  color: #000;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: var(--font-heading);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  box-shadow: var(--accent-shadow);
+}
+
+.portfolio-visit-btn:hover {
+  background-color: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+/* Card Body */
+.portfolio-card-body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.portfolio-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.portfolio-project-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  flex: 1;
+}
+
+.portfolio-ext-link {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.portfolio-ext-link:hover {
+  color: var(--accent-color);
+}
+
+.portfolio-category-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+.portfolio-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+.portfolio-domain {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: monospace;
+  margin-top: auto;
+}
+
+/* Responsive Portfolio */
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-filters {
+    gap: 8px;
+  }
+
+  .portfolio-filter-btn {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+}
+
