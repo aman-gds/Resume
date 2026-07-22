@@ -40,10 +40,7 @@ export default function Sidebar({ onShowToast }) {
       });
   };
 
-  const handleDownloadCV = (e) => {
-    e.preventDefault();
-    onShowToast("CV download initiated (mockup)!");
-  };
+
 
   return (
     <aside className="profile-sidebar">
@@ -101,10 +98,11 @@ export default function Sidebar({ onShowToast }) {
 
       {/* Action Button */}
       <a 
-        href="#" 
-        className="sidebar-action-btn" 
-        onClick={handleDownloadCV}
+        href="/Aman-CV.pdf"
+        download="M-Aman-Khan-CV.pdf"
+        className="sidebar-action-btn"
         id="btn-download-cv"
+        onClick={() => onShowToast('Downloading CV...')}
       >
         <Download size={18} />
         Download CV
