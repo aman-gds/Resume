@@ -6,6 +6,7 @@ import ResumeSection from './components/ResumeSection';
 import SkillsSection from './components/SkillsSection';
 import PortfolioSection from './components/PortfolioSection';
 import ContactSection from './components/ContactSection';
+import CursorEffect from './components/CursorEffect';
 import './App.css';
 
 export default function App() {
@@ -41,6 +42,9 @@ export default function App() {
 
   return (
     <div className="portfolio-wrapper">
+      {/* Custom Glowing Cursor & Floating Code Snippets Effect */}
+      <CursorEffect />
+
       {/* Sidebar Profile Card */}
       <Sidebar onShowToast={showToast} />
 
