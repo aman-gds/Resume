@@ -15,8 +15,8 @@ export default function Sidebar({ onShowToast }) {
     {
       id: 'email',
       label: 'Email',
-      value: 'aman03122906994@gmail.com',
-      copyValue: 'aman03122906994@gmail.com',
+      value: 'mamankhan2002@gmail.com',
+      copyValue: 'mamankhan2002@gmail.com',
       icon: <Mail size={18} />
     },
     {
