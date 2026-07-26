@@ -92,22 +92,112 @@ const projects = [
     url: 'https://themop.ca/',
     category: 'Home Services',
     desc: 'Cleaning services business with booking and service area pages.'
+  },
+  {
+    id: 14,
+    name: 'Hirani Law Firm',
+    url: 'https://hiranilawfirm.com/',
+    category: 'Legal Services',
+    desc: 'Legal services website with practice area details and client consultation booking.'
+  },
+  {
+    id: 15,
+    name: 'Canvas Immigration',
+    url: 'https://canvasimmigration.com/',
+    category: 'Immigration Services',
+    desc: 'Immigration consultancy platform showcasing visa services and consultation forms.'
+  },
+  {
+    id: 16,
+    name: 'Lahore Premium Kabab',
+    url: 'https://www.lahorepremiumkabab.com/',
+    category: 'Food & Dining',
+    desc: 'Pakistani restaurant website featuring online menu, catering, and location details.'
+  },
+  {
+    id: 17,
+    name: 'Crystal Shop Canada',
+    url: 'https://crystalshopcanada.ca/',
+    category: 'E-Commerce',
+    desc: 'Canadian online crystal store featuring WooCommerce product catalog and checkout.'
+  },
+  {
+    id: 18,
+    name: 'Karachi Xpress',
+    url: 'https://karachixpress.com/',
+    category: 'Food & Dining',
+    desc: 'Authentic South Asian restaurant site with menu showcase and online ordering.'
+  },
+  {
+    id: 19,
+    name: 'Lyari Cafe',
+    url: 'https://www.lyaricafe.com/',
+    category: 'Food & Dining',
+    desc: 'Traditional cafe website displaying specialized food menu and contact details.'
+  },
+  {
+    id: 20,
+    name: 'NuLook Beauty',
+    url: 'https://nulookbeauty.ca/',
+    category: 'Beauty & Wellness',
+    desc: 'Canadian beauty studio platform highlighting salon services and booking.'
+  },
+  {
+    id: 21,
+    name: 'Go United',
+    url: 'https://gounited.ca/',
+    category: 'Logistics & Supply',
+    desc: 'Logistics and freight management corporate website with service inquiries.'
+  },
+  {
+    id: 22,
+    name: 'Barq Impex',
+    url: 'https://www.barqimpex.com/',
+    category: 'Import & Export',
+    desc: 'International trade & export company catalog website with product listings.'
+  },
+  {
+    id: 23,
+    name: 'ZF Canada',
+    url: 'https://zfcanada.com/',
+    category: 'Automotive & Industry',
+    desc: 'Canadian industrial and automotive solutions provider showcase.'
+  },
+  {
+    id: 24,
+    name: 'Huda Aesthetics',
+    url: 'https://hudaaesthetics.com/',
+    category: 'Beauty & Wellness',
+    desc: 'Medical aesthetics clinic site featuring treatment menus and appointments.'
+  },
+  {
+    id: 25,
+    name: 'GAAP Finance',
+    url: 'https://gaapfinance.ca/',
+    category: 'Finance & Accounting',
+    desc: 'Financial advisory & accounting services portal with consultation booking.'
   }
 ];
 
 // Category color map
 const categoryColors = {
-  'Gaming & Design':   { bg: 'rgba(168, 85, 247, 0.15)', border: 'rgba(168, 85, 247, 0.4)', text: '#a855f7' },
-  'E-Commerce':        { bg: 'rgba(59, 130, 246, 0.15)', border: 'rgba(59, 130, 246, 0.4)', text: '#3b82f6' },
-  'Marketing Agency':  { bg: 'rgba(163, 230, 53, 0.15)', border: 'rgba(163, 230, 53, 0.4)', text: '#a3e635' },
-  'Business Services': { bg: 'rgba(251, 191, 36, 0.15)', border: 'rgba(251, 191, 36, 0.4)', text: '#fbbf24' },
-  'Beauty & Wellness': { bg: 'rgba(236, 72, 153, 0.15)', border: 'rgba(236, 72, 153, 0.4)', text: '#ec4899' },
-  'Healthcare':        { bg: 'rgba(20, 184, 166, 0.15)', border: 'rgba(20, 184, 166, 0.4)', text: '#14b8a6' },
-  'Legal Services':    { bg: 'rgba(99, 102, 241, 0.15)', border: 'rgba(99, 102, 241, 0.4)', text: '#6366f1' },
-  'Sports & Youth':    { bg: 'rgba(249, 115, 22, 0.15)', border: 'rgba(249, 115, 22, 0.4)', text: '#f97316' },
-  'Sports & Events':   { bg: 'rgba(14, 165, 233, 0.15)', border: 'rgba(14, 165, 233, 0.4)', text: '#0ea5e9' },
-  'Consulting':        { bg: 'rgba(16, 185, 129, 0.15)', border: 'rgba(16, 185, 129, 0.4)', text: '#10b981' },
-  'Home Services':     { bg: 'rgba(245, 158, 11, 0.15)', border: 'rgba(245, 158, 11, 0.4)', text: '#f59e0b' },
+  'Gaming & Design':      { bg: 'rgba(168, 85, 247, 0.15)', border: 'rgba(168, 85, 247, 0.4)', text: '#a855f7' },
+  'E-Commerce':           { bg: 'rgba(59, 130, 246, 0.15)', border: 'rgba(59, 130, 246, 0.4)', text: '#3b82f6' },
+  'Marketing Agency':     { bg: 'rgba(163, 230, 53, 0.15)', border: 'rgba(163, 230, 53, 0.4)', text: '#a3e635' },
+  'Business Services':    { bg: 'rgba(251, 191, 36, 0.15)', border: 'rgba(251, 191, 36, 0.4)', text: '#fbbf24' },
+  'Beauty & Wellness':    { bg: 'rgba(236, 72, 153, 0.15)', border: 'rgba(236, 72, 153, 0.4)', text: '#ec4899' },
+  'Healthcare':           { bg: 'rgba(20, 184, 166, 0.15)', border: 'rgba(20, 184, 166, 0.4)', text: '#14b8a6' },
+  'Legal Services':       { bg: 'rgba(99, 102, 241, 0.15)', border: 'rgba(99, 102, 241, 0.4)', text: '#6366f1' },
+  'Sports & Youth':       { bg: 'rgba(249, 115, 22, 0.15)', border: 'rgba(249, 115, 22, 0.4)', text: '#f97316' },
+  'Sports & Events':      { bg: 'rgba(14, 165, 233, 0.15)', border: 'rgba(14, 165, 233, 0.4)', text: '#0ea5e9' },
+  'Consulting':           { bg: 'rgba(16, 185, 129, 0.15)', border: 'rgba(16, 185, 129, 0.4)', text: '#10b981' },
+  'Home Services':        { bg: 'rgba(245, 158, 11, 0.15)', border: 'rgba(245, 158, 11, 0.4)', text: '#f59e0b' },
+  'Immigration Services': { bg: 'rgba(99, 102, 241, 0.15)', border: 'rgba(99, 102, 241, 0.4)', text: '#818cf8' },
+  'Food & Dining':        { bg: 'rgba(239, 68, 68, 0.15)', border: 'rgba(239, 68, 68, 0.4)', text: '#ef4444' },
+  'Logistics & Supply':   { bg: 'rgba(14, 165, 233, 0.15)', border: 'rgba(14, 165, 233, 0.4)', text: '#38bdf8' },
+  'Import & Export':      { bg: 'rgba(168, 85, 247, 0.15)', border: 'rgba(168, 85, 247, 0.4)', text: '#c084fc' },
+  'Automotive & Industry':{ bg: 'rgba(156, 163, 175, 0.15)', border: 'rgba(156, 163, 175, 0.4)', text: '#9ca3af' },
+  'Finance & Accounting': { bg: 'rgba(34, 197, 94, 0.15)', border: 'rgba(34, 197, 94, 0.4)', text: '#22c55e' },
 };
 
 function ProjectCard({ project }) {
