@@ -5,23 +5,23 @@ export default function AboutSection() {
   const services = [
     {
       icon: <LayoutTemplate size={28} />,
-      title: 'WordPress Customization',
-      desc: 'Developing and tailoring custom WordPress themes and plugins to match distinct business identities and operational workflows.'
+      title: 'WordPress & E-Commerce',
+      desc: 'Building responsive, high-performing websites using Elementor Pro, WPBakery, WooCommerce, and custom PHP tailored to business goals.'
     },
     {
       icon: <ShoppingBag size={28} />,
-      title: 'E-Commerce Optimization',
-      desc: 'Building high-conversion e-commerce stores with WooCommerce, complete with custom checkouts, payment gateways, and custom product architectures.'
+      title: 'SEO & Performance Optimization',
+      desc: 'Optimizing page speed by up to 35%, tuning Core Web Vitals, and implementing targeted technical SEO to boost organic traffic and conversions.'
     },
     {
       icon: <Layers size={28} />,
       title: 'UI/UX & Responsive Frontend',
-      desc: 'Crafting beautiful, pixel-perfect interfaces using HTML-5 and CSS-3, styled seamlessly to provide cohesive desktop and mobile user journeys.'
+      desc: 'Designing intuitive, accessible digital experiences with clean HTML5 and CSS3, ensuring seamless cross-device compatibility.'
     },
     {
       icon: <Terminal size={28} />,
-      title: 'Python Scripts & Scraping',
-      desc: 'Creating custom data scrapers, automated content migration pipelines, and data processing scripts to feed and power dynamic CMS platforms.'
+      title: 'Python Web Scraping & Data',
+      desc: 'Engineering automated Python web scrapers (Scrapy, BeautifulSoup, Selenium) extracting 100K+ data points weekly into structured JSON/CSV formats.'
     }
   ];
 
@@ -29,10 +29,11 @@ export default function AboutSection() {
     <section className="tab-content" id="section-about">
       <h2 className="section-title">About Me</h2>
       <p className="about-intro">
-        I am a results-driven WordPress Developer specializing in building high-performance, 
-        responsive, and visually compelling web experiences. With deep expertise in CMS ecosystem 
-        management, custom theme styling, and e-commerce optimization, I bridge the gap between 
-        clean code and impactful UI/UX design.
+        Detail-oriented WordPress Developer with expertise in building responsive, high-performing websites 
+        and custom e-commerce solutions. Proficient in theme and plugin customization, UI/UX optimization, 
+        and web performance using Elementor and WooCommerce. Blends a solid technical background in 
+        Computer Science with practical experience in data annotation and web scraping to build user-focused, 
+        SEO-friendly digital experiences.
       </p>
 
       <h3 className="services-title">What I Do</h3>

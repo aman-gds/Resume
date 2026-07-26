@@ -9,12 +9,19 @@ export default function ResumeSection() {
       location: 'Remote – Markham, Canada',
       period: 'July 2024 – Present',
       bullets: [
-        'Developed and customized WordPress themes and plugins to meet distinct client business requirements.',
-        'Designed and implemented highly responsive websites utilizing Elementor, WPBakery, and custom theme development.',
-        'Optimized website performance infrastructure, ensuring rapid loading speeds and SEO-friendly architectures.',
-        'Managed ongoing website maintenance, critical security updates, and advanced technical troubleshooting.',
-        'Collaborated cross-functionally with designers and content creators to elevate UI/UX and user engagement metrics.',
-        'Leveraged WooCommerce for end-to-end eCommerce website development, deep customization, and checkout optimization.'
+        'Develop and customize responsive, high-performing WordPress and WooCommerce websites using Elementor Pro, WPBakery, and custom PHP.',
+        'Successfully improved website page speed scores by 35% and increased organic traffic through targeted technical SEO optimizations.',
+        'Oversee payment gateway integrations, security patching, and core updates, collaborating with UI/UX designers to boost user engagement and conversions by 15%.'
+      ]
+    },
+    {
+      title: 'Data Scraping Specialist',
+      company: 'Grand Digitals Pvt Ltd',
+      location: 'Karachi, Pakistan',
+      period: 'March 2024 – June 2024',
+      bullets: [
+        'Engineered and maintained automated Python web scraping scripts using Scrapy, BeautifulSoup, and Selenium to reliably extract over 100K data points weekly.',
+        'Cleaned, validated, and structured complex unstructured web data into high-quality JSON and CSV formats, utilizing IP rotation strategies to maintain a 98% scraper success rate across dynamic platforms.'
       ]
     },
     {
@@ -23,21 +30,19 @@ export default function ResumeSection() {
       location: 'Karachi, Pakistan',
       period: 'July 2023 – February 2024',
       bullets: [
-        'Labeled and annotated massive, complex datasets for machine learning models, ensuring absolute accuracy and structural consistency.',
-        'Reviewed and validated data integrity to maintain exceptionally high-quality standards in AI training datasets.',
-        'Collaborated directly with data scientists and engineers to refine annotation guidelines and optimize model performance.',
-        'Maintained strict compliance with project-specific annotation standards and industry best practices.'
+        'Precisely labeled and annotated over 20K high-quality text and image dataset points for machine learning and computer vision models.',
+        'Partnered closely with data scientists to audit annotations and refine labeling guidelines, ensuring a 99% data accuracy rate and accelerating model training cycles by 20%.'
       ]
     }
   ];
 
   const education = [
     {
-      title: 'Bachelor of Computer Science',
+      title: 'Bachelor of Science in Computer Science',
       institution: 'Ilma University',
       location: 'Karachi, Pakistan',
-      period: 'Graduation: December 2024',
-      desc: 'Focused on software engineering, database management, web technologies, and computational theories.'
+      period: 'December 2024',
+      desc: 'Specialized in Software Engineering, Database Systems, and Web Application Development.'
     },
     {
       title: 'Intermediate in Pre-Engineering',

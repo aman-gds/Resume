@@ -12,29 +12,33 @@ export default function SkillsSection() {
 
   const skillGroups = [
     {
-      title: 'Core CMS & Page Builders',
+      title: 'CMS & Page Builders',
       icon: <LayoutGrid size={20} />,
       skills: [
         { name: 'WordPress', level: 95 },
-        { name: 'Elementor', level: 92 },
-        { name: 'Elementor-Pro', level: 90 },
-        { name: 'WooCommerce', level: 85 }
+        { name: 'Elementor Pro', level: 92 },
+        { name: 'WooCommerce', level: 90 },
+        { name: 'WPBakery & PHP', level: 85 }
       ]
     },
     {
-      title: 'Frontend & Styling',
+      title: 'Frontend, SEO & Web Performance',
       icon: <Paintbrush size={20} />,
       skills: [
-        { name: 'HTML-5', level: 90 },
-        { name: 'CSS-3', level: 88 }
+        { name: 'HTML5 & CSS3', level: 92 },
+        { name: 'SEO & Optimization', level: 90 },
+        { name: 'Core Web Vitals', level: 88 },
+        { name: 'UI/UX Design', level: 85 }
       ]
     },
     {
-      title: 'Programming & Data Science',
+      title: 'Python & Web Scraping',
       icon: <Terminal size={20} />,
       skills: [
-        { name: 'Python', level: 82 },
-        { name: 'Web-Scraping', level: 85 }
+        { name: 'Python & Web Scraping', level: 90 },
+        { name: 'Scrapy & BeautifulSoup', level: 88 },
+        { name: 'Selenium & IP Rotation', level: 85 },
+        { name: 'Data Annotation & AI', level: 88 }
       ]
     }
   ];

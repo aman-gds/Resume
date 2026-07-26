@@ -59,7 +59,7 @@ export default function Sidebar({ onShowToast }) {
 
       {/* Profile Details */}
       <h2 className="profile-name">M. Aman Khan</h2>
-      <div className="profile-title">WordPress Specialist</div>
+      <div className="profile-title">WordPress & Scraping Specialist</div>
 
       {/* Social Links */}
       <div className="social-links">
