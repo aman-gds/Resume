@@ -13,8 +13,8 @@ const projects = [
     id: 2,
     name: 'Picklex',
     url: 'https://picklex.ca/',
-    category: 'E-Commerce',
-    desc: 'Canadian e-commerce platform with WooCommerce integration.'
+    category: 'Sports & Events',
+    desc: 'Pickleball venue platform featuring event updates and weekday/weekend hourly court pricing.'
   },
   {
     id: 3,
@@ -105,6 +105,7 @@ const categoryColors = {
   'Healthcare':        { bg: 'rgba(20, 184, 166, 0.15)', border: 'rgba(20, 184, 166, 0.4)', text: '#14b8a6' },
   'Legal Services':    { bg: 'rgba(99, 102, 241, 0.15)', border: 'rgba(99, 102, 241, 0.4)', text: '#6366f1' },
   'Sports & Youth':    { bg: 'rgba(249, 115, 22, 0.15)', border: 'rgba(249, 115, 22, 0.4)', text: '#f97316' },
+  'Sports & Events':   { bg: 'rgba(14, 165, 233, 0.15)', border: 'rgba(14, 165, 233, 0.4)', text: '#0ea5e9' },
   'Consulting':        { bg: 'rgba(16, 185, 129, 0.15)', border: 'rgba(16, 185, 129, 0.4)', text: '#10b981' },
   'Home Services':     { bg: 'rgba(245, 158, 11, 0.15)', border: 'rgba(245, 158, 11, 0.4)', text: '#f59e0b' },
 };
