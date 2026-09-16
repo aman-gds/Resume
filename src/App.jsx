@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import AboutSection from './components/AboutSection';
@@ -7,11 +7,32 @@ import SkillsSection from './components/SkillsSection';
 import PortfolioSection from './components/PortfolioSection';
 import ContactSection from './components/ContactSection';
 import CursorEffect from './components/CursorEffect';
+import ErrorBoundary from './components/ErrorBoundary';
 import './App.css';
 
+const VALID_TABS = ['about', 'resume', 'skills', 'portfolio', 'contact'];
+
+function getTabFromHash() {
+  const hash = window.location.hash.replace('#', '');
+  return VALID_TABS.includes(hash) ? hash : 'about';
+}
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState('about');
+  const [activeTab, setActiveTab] = useState(getTabFromHash);
   const [toasts, setToasts] = useState([]);
+
+  // Sync hash → state (browser back/forward)
+  useEffect(() => {
+    const onHashChange = () => setActiveTab(getTabFromHash());
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  // Sync state → hash (tab click)
+  const changeTab = (tabId) => {
+    window.location.hash = tabId;
+    setActiveTab(tabId);
+  };
 
   const showToast = (message) => {
     const id = Date.now();
@@ -43,7 +64,9 @@ export default function App() {
   return (
     <div className="portfolio-wrapper">
       {/* Custom Glowing Cursor & Floating Code Snippets Effect */}
-      <CursorEffect />
+      <ErrorBoundary>
+        <CursorEffect />
+      </ErrorBoundary>
 
       {/* Sidebar Profile Card */}
       <Sidebar onShowToast={showToast} />
@@ -51,7 +74,7 @@ export default function App() {
       {/* Main Content Area */}
       <main className="content-area">
         {/* Navigation Header */}
-        <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+        <Navbar activeTab={activeTab} setActiveTab={changeTab} />
 
         {/* Dynamic Section Contents */}
         <div className="sections-container" key={activeTab}>

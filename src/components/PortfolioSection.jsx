@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ExternalLink, Globe, Eye } from 'lucide-react';
 
 const projects = [
@@ -203,12 +203,32 @@ const categoryColors = {
 function ProjectCard({ project }) {
   const [imgError, setImgError] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
   const catColor = categoryColors[project.category] || categoryColors['Business Services'];
   const domain = new URL(project.url).hostname.replace('www.', '');
   const screenshotUrl = `https://image.thum.io/get/width/600/crop/400/noanimate/${project.url}`;
 
+  // IntersectionObserver — only load image when card is in viewport
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '100px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
+      ref={cardRef}
       className="portfolio-card"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -216,7 +236,7 @@ function ProjectCard({ project }) {
     >
       {/* Screenshot Preview */}
       <div className="portfolio-img-wrapper">
-        {!imgError ? (
+        {isVisible && !imgError ? (
           <img
             src={screenshotUrl}
             alt={`${project.name} website screenshot`}

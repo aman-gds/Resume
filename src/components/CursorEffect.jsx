@@ -10,6 +10,9 @@ const CODE_SNIPPETS = [
   'WordPress', 'Elementor', 'WooCommerce', 'return', 'const',
 ];
 
+const INTERACTIVE_SELECTOR =
+  'a, button, .nav-link, .portfolio-card, .service-card, .skill-pill, .contact-item, .social-btn';
+
 let spawnCounter = 0;
 
 export default function CursorEffect() {
@@ -19,8 +22,18 @@ export default function CursorEffect() {
   const ring     = useRef({ x: -200, y: -200 });
   const rafId    = useRef(null);
   const lastSpawn = useRef(0);
+  const prefersReducedMotion = useRef(false);
 
   const [particles, setParticles] = useState([]);
+
+  // ── Check reduced-motion preference ───────────────────────────────────────
+  useEffect(() => {
+    const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
+    prefersReducedMotion.current = mql.matches;
+    const handler = (e) => { prefersReducedMotion.current = e.matches; };
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
 
   // ── Animate ring with smooth lag ──────────────────────────────────────────
   useEffect(() => {
@@ -47,24 +60,26 @@ export default function CursorEffect() {
     mouse.current.x = e.clientX;
     mouse.current.y = e.clientY;
 
+    // Skip particles when user prefers reduced motion
+    if (prefersReducedMotion.current) return;
+
     const now = Date.now();
-    if (now - lastSpawn.current < 120) return; // throttle: 1 particle per 120ms
+    if (now - lastSpawn.current < 350) return; // throttle: ~1 particle per 350ms
     lastSpawn.current = now;
 
     const id = spawnCounter++;
     const snippet = CODE_SNIPPETS[Math.floor(Math.random() * CODE_SNIPPETS.length)];
     const offsetX = (Math.random() - 0.5) * 60;
-    const angle   = -60 + Math.random() * 120; // degrees drift
 
     setParticles(prev => [
       ...prev,
-      { id, x: e.clientX, y: e.clientY, snippet, offsetX, angle }
+      { id, x: e.clientX, y: e.clientY, snippet, offsetX }
     ]);
 
     // auto-remove after animation ends
     setTimeout(() => {
       setParticles(prev => prev.filter(p => p.id !== id));
-    }, 1100);
+    }, 950);
   }, []);
 
   useEffect(() => {
@@ -72,23 +87,24 @@ export default function CursorEffect() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [handleMouseMove]);
 
-  // ── Hover effects: scale ring on clickable elements ───────────────────────
+  // ── Hover effects via event delegation (works for dynamic elements) ───────
   useEffect(() => {
-    const grow = () => ringRef.current?.classList.add('cursor-hover');
-    const shrink = () => ringRef.current?.classList.remove('cursor-hover');
+    const handleOver = (e) => {
+      if (e.target.closest(INTERACTIVE_SELECTOR)) {
+        ringRef.current?.classList.add('cursor-hover');
+      }
+    };
+    const handleOut = (e) => {
+      if (e.target.closest(INTERACTIVE_SELECTOR)) {
+        ringRef.current?.classList.remove('cursor-hover');
+      }
+    };
 
-    const targets = document.querySelectorAll(
-      'a, button, .nav-link, .portfolio-card, .service-card, .skill-card, .contact-item, .social-btn'
-    );
-    targets.forEach(el => {
-      el.addEventListener('mouseenter', grow);
-      el.addEventListener('mouseleave', shrink);
-    });
+    document.addEventListener('mouseover', handleOver);
+    document.addEventListener('mouseout', handleOut);
     return () => {
-      targets.forEach(el => {
-        el.removeEventListener('mouseenter', grow);
-        el.removeEventListener('mouseleave', shrink);
-      });
+      document.removeEventListener('mouseover', handleOver);
+      document.removeEventListener('mouseout', handleOut);
     };
   }, []);
 

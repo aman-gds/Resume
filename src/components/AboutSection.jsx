@@ -29,11 +29,11 @@ export default function AboutSection() {
     <section className="tab-content" id="section-about">
       <h2 className="section-title">About Me</h2>
       <p className="about-intro">
-        Detail-oriented WordPress Developer with expertise in building responsive, high-performing websites 
-        and custom e-commerce solutions. Proficient in theme and plugin customization, UI/UX optimization, 
-        and web performance using Elementor and WooCommerce. Blends a solid technical background in 
-        Computer Science with practical experience in data annotation and web scraping to build user-focused, 
-        SEO-friendly digital experiences.
+        WordPress Developer specializing in responsive, high-performing websites and custom 
+        e-commerce solutions. I build with Elementor Pro, WooCommerce, and custom PHP — then 
+        supercharge results with Python automation tools (Scrapy, BeautifulSoup, Selenium) that 
+        handle data extraction, content migration, and SEO auditing at scale. From concept to 
+        deployment, I deliver user-focused digital experiences that convert.
       </p>
 
       <h3 className="services-title">What I Do</h3>

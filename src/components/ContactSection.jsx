@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Send, MapPin, Loader2 } from 'lucide-react';
 
+// ── Web3Forms access key ─────────────────────────────────────────────────────
+const WEB3FORMS_ACCESS_KEY = '656fe033-8fb6-4597-a50b-29a2813f6352';
+
 export default function ContactSection({ onShowToast }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -22,7 +25,7 @@ export default function ContactSection({ onShowToast }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -36,21 +39,43 @@ export default function ContactSection({ onShowToast }) {
 
     setStatus({ submitting: true, success: null, message: '' });
 
-    // Mocking API call
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || 'Portfolio Contact Form',
+          message: formData.message
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setStatus({
+          submitting: false,
+          success: true,
+          message: 'Thank you! Your message has been sent successfully.'
+        });
+        onShowToast('Message sent successfully!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus({
+          submitting: false,
+          success: false,
+          message: result.message || 'Something went wrong. Please try again.'
+        });
+      }
+    } catch (error) {
       setStatus({
         submitting: false,
-        success: true,
-        message: 'Thank you! Your message has been sent successfully.'
+        success: false,
+        message: 'Network error. Please check your connection and try again.'
       });
-      onShowToast("Message sent successfully!");
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-    }, 1500);
+    }
   };
 
   return (

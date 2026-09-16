@@ -40,26 +40,29 @@ export default function Sidebar({ onShowToast }) {
       });
   };
 
-
-
   return (
     <aside className="profile-sidebar">
-      {/* Avatar */}
+      {/* Avatar — WebP with PNG fallback */}
       <div className="avatar-container">
-        <img 
-          src="/avatar.png" 
-          alt="M. Aman Khan Profile" 
-          className="avatar-img"
-          onError={(e) => {
-            e.target.onerror = null; 
-            e.target.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80"; // fallback
-          }}
-        />
+        <picture>
+          <source srcSet="/avatar.webp" type="image/webp" />
+          <img 
+            src="/avatar.png" 
+            alt="M. Aman Khan Profile" 
+            className="avatar-img"
+            width="400"
+            height="400"
+            onError={(e) => {
+              e.target.onerror = null; 
+              e.target.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80";
+            }}
+          />
+        </picture>
       </div>
 
       {/* Profile Details */}
       <h2 className="profile-name">M. Aman Khan</h2>
-      <div className="profile-title">WordPress & Scraping Specialist</div>
+      <div className="profile-title">WordPress Dev & Automation Specialist</div>
 
       {/* Social Links */}
       <div className="social-links">
@@ -75,10 +78,11 @@ export default function Sidebar({ onShowToast }) {
         </a>
       </div>
 
-      {/* Contact Information */}
+      {/* Contact Information — keyboard-accessible buttons */}
       <div className="contact-info-list">
         {contactDetails.map((detail) => (
-          <div 
+          <button 
+            type="button"
             key={detail.id} 
             className="contact-item"
             onClick={() => handleCopy(detail.copyValue, detail.id, detail.label)}
@@ -92,7 +96,7 @@ export default function Sidebar({ onShowToast }) {
               <span className="contact-label">{detail.label}</span>
               <span className="contact-value">{detail.value}</span>
             </div>
-          </div>
+          </button>
         ))}
       </div>
 

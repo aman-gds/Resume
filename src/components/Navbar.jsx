@@ -12,7 +12,8 @@ export default function Navbar({ activeTab, setActiveTab }) {
     { id: 'contact', label: 'Contact' }
   ];
 
-  const handleTabClick = (tabId) => {
+  const handleTabClick = (e, tabId) => {
+    e.preventDefault();
     setActiveTab(tabId);
     setIsMenuOpen(false);
   };
@@ -40,10 +41,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
               <a
                 href={`#${item.id}`}
                 className={`nav-link ${activeTab === item.id ? 'active' : ''}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleTabClick(item.id);
-                }}
+                onClick={(e) => handleTabClick(e, item.id)}
                 id={`nav-link-${item.id}`}
               >
                 {item.label}

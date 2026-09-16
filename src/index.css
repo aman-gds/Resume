@@ -6,7 +6,7 @@
   --border-hover: #3d3d3d;
   --text-primary: #ffffff;
   --text-secondary: #aaaaaa;
-  --text-muted: #666666;
+  --text-muted: #8a8a8a;
   
   --accent-color: #a3e635; /* Neon lime green */
   --accent-rgb: 163, 230, 53;
@@ -56,10 +56,10 @@ h1, h2, h3, h4, h5, h6 {
    CUSTOM CURSOR EFFECT
    ============================================= */
 
-/* Hide default cursor on desktop */
+/* Show a transparent custom cursor so native cursor remains visible as fallback */
 @media (pointer: fine) {
   *, *::before, *::after {
-    cursor: none !important;
+    cursor: default;
   }
 }
 
@@ -114,20 +114,20 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 11px;
   font-weight: 700;
   color: var(--accent-color);
-  text-shadow: 0 0 8px rgba(163, 230, 53, 0.7);
+  text-shadow: 0 0 5px rgba(163, 230, 53, 0.4);
   white-space: nowrap;
   user-select: none;
-  animation: particleFloat 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: particleFloat 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   transform-origin: center;
 }
 
 @keyframes particleFloat {
   0% {
-    opacity: 1;
+    opacity: 0.55;
     transform: translate(-50%, -50%) translateY(0px) translateX(0px) scale(1);
   }
   40% {
-    opacity: 0.9;
+    opacity: 0.4;
   }
   100% {
     opacity: 0;
@@ -722,75 +722,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.skill-card {
-  background-color: var(--subcard-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  padding: 22px 25px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: var(--transition-smooth);
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.skill-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(var(--accent-rgb), 0.4);
-  box-shadow: var(--shadow-sm), 0 0 15px rgba(var(--accent-rgb), 0.05);
-}
-
-.skill-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skill-name-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.skill-icon-wrapper {
-  color: var(--accent-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.skill-name {
-  font-weight: 600;
+.skill-pill {
+  display: inline-block;
+  background-color: rgba(var(--accent-rgb), 0.08);
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
   color: var(--text-primary);
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 25px;
+  transition: var(--transition-fast);
+  cursor: default;
 }
 
-.skill-percentage {
-  font-size: 13px;
-  font-weight: 700;
+.skill-pill:hover {
+  background-color: rgba(var(--accent-rgb), 0.15);
+  border-color: var(--accent-color);
   color: var(--accent-color);
-  font-family: var(--font-heading);
-}
-
-.progress-bar-bg {
-  width: 100%;
-  height: 6px;
-  background-color: var(--border-color);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.progress-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent-color) 0%, #00e5ff 100%);
-  border-radius: 3px;
-  transition: width 1.2s cubic-bezier(0.1, 0.8, 0.2, 1);
-  box-shadow: 0 0 8px var(--accent-color);
-  width: 0; /* Animated dynamically */
+  transform: translateY(-2px);
 }
 
 /* Contact Section CSS */
@@ -1077,10 +1031,7 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
+
   
   .contact-grid {
     grid-template-columns: 1fr;
@@ -1307,3 +1258,23 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Contact-item button reset (keyboard-accessible) */
+button.contact-item {
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
